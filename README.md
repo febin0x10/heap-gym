@@ -43,3 +43,17 @@ __Challenges__
 2. **DF**: There's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's a memory leak bug. Use-After-Free is fixed. Exploit Double-Free bug to gain code execution.
 3. **OF**: There's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's a memory leak bug. Use-After-Free and Double-Free are fixed. Exploit a Heap Overflow bug to gain code execution.
 
+
+__TOOLS__
+* Python3
+* Pwntools module
+* Pwndbg/Gef extension for GDB (you can use any extension of your choice)
+* gcc-10 (Optional, only if you're re-compiling the source code and linking it with given libc and ld)
+* patchelf (Optional, only if you're re-compiling the source code and linking it with given libc and ld)
+* netcat/socat (Optional, if you're to listen the binaries via network and remotely exploit them)
+
+__Learning Objectives__: Binary exploitation, Heap Exploitation, CTF, Low level program, Memory Safety, Buffer Overflow, Use-After-Free, Double-Free, Debugging, Reverse Engineering, Pwntools, Gdb.
+
+__USE-AFTER-FREE__: Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation. If after freeing a memory location, a program does not clear the pointer to that memory, an attacker can use the error to hack the program.
+
+__DOUBLE-FREE__: Double free errors occur when free() is called more than once with the same memory address as an argument. Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program’s memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. 
