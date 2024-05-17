@@ -58,6 +58,8 @@ __Challenges__
 3. **OF**: There's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's a memory leak bug. Use-After-Free and Double-Free are fixed. Exploit a Heap Overflow bug to gain code execution.
 
 
+**NOTE**: Give executable permissions to capsuledb and ld-2.2x.so binaries before running the binary, else the binary won't run.
+
 __TOOLS__
 * Python3
 * Pwntools module
