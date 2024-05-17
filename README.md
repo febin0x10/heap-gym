@@ -25,6 +25,7 @@ __Challenges__
 6.  **heap-uaf2**: This time there's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's still a memory leak bug. You need to find the libc base address and the address of system() function using the memory leak bypassing ASLR and exploit USE-AFTER-FREE bug to achieve Arbitrary write primitive and later gain code execution via hijacking something else from libc(hint: HOOKS). Feel free to refer my commented exploit script (exploit.py) if you stuck at exploitation part.
 
 7.  **heap-df2**: There's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's still a memory leak bug. In this level the Use-After-Free bug is fixed/patched. You need to find the libc base address and the address of system() function using the memory leak bypassing ASLR and exploit DOUBLE-FREE bug to achieve Arbitrary write primitive and later gain code execution via hijacking something else from libc(hint: HOOKS). Feel free to refer my commented exploit script (exploit.py) if you stuck at exploitation part.
+
 8.  **heap-OF2**: There's no win function, the binary is compiled with PIE and Full-Relro that means you can't perform GOT overwrite, but there's still a memory leak bug. In this level the Use-After-Free bug and the Double-Free bug has been fixed/patched. You need to find the libc base address and the address of system() function using the memory leak bypassing ASLR and you need to find and exploit a  HEAP OVERFLOW bug to overwrite a freed chunk, achieve Arbitrary write primitive and later gain code execution. Feel free to refer my commented exploit script (exploit.py) if you stuck at exploitation part.
 
 
@@ -52,8 +53,15 @@ __TOOLS__
 * patchelf (Optional, only if you're re-compiling the source code and linking it with given libc and ld)
 * netcat/socat (Optional, if you're to listen the binaries via network and remotely exploit them)
 
+__Listen CapsuleDB binaries over network?__: Yes you can do serve the binaries over the network to practice remote exploitation like in CTFs and real-life exploit. You can use the 'listen.sh' script to listen any challenge level binaries on any port. Usage: ./listen.sh [/path/to/capsuledb-x_x] [PORT] 
+
 __Learning Objectives__: Binary exploitation, Heap Exploitation, CTF, Low level program, Memory Safety, Buffer Overflow, Use-After-Free, Double-Free, Debugging, Reverse Engineering, Pwntools, Gdb.
 
 __USE-AFTER-FREE__: Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation. If after freeing a memory location, a program does not clear the pointer to that memory, an attacker can use the error to hack the program.
 
 __DOUBLE-FREE__: Double free errors occur when free() is called more than once with the same memory address as an argument. Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program’s memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. 
+
+Publish the writeups on my medium blog soon,
+https://febinj.medium.com/
+
+
